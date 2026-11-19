@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-switch"
+dynamic = ["version"]
+description = "Continue a coding session in a different AI coding CLI with one command (Claude Code and Kiro CLI)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["claude-code", "kiro", "cli", "ai-agents", "handoff"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+]
+dependencies = []
+
+[project.scripts]
+sw = "agent_switch.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "agent_switch.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
